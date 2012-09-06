@@ -6,7 +6,7 @@ slipd() {
     return 0
   elif [ "$1" = "--complete" ]; then
     shift
-    slipd_complete $* && return 0
+    _slipd_complete $* && return 0
     return 1
   fi
 
@@ -14,7 +14,7 @@ slipd() {
   local dir
 
   if [ -n "$signal" ]; then
-    dir=$(slipd_complete --absolute "$signal")
+    dir=$(_slipd_complete --absolute "$signal")
     if [ -z "$dir" ]; then
       echo "$0: no matchs for upper directory: $signal"
       return 1
@@ -28,7 +28,7 @@ slipd() {
   return 1
 }
 
-slipd_complete () {
+_slipd_complete () {
   local ABSOLUTE
 
   while [ "$#" != "0" ]; do
@@ -73,7 +73,7 @@ slipd_complete () {
   esac
 }
 
-slipd_complete_all () {
+_slipd_enumerate () {
 
   local ABSOLUTE
 
