@@ -1,0 +1,18 @@
+#compdef slipd
+
+local signal
+signal=${words[2]}
+
+function _slipd_complete_all () {
+  local paths
+  if [ -z "$signal" ]; then
+    paths=($(slipd_complete_all))
+  else
+    paths=($(slipd_complete "$signal"))
+  fi
+
+  # TODO: order
+  _describe -t upper_directory "upper directory" paths
+}
+
+_slipd_complete_all
