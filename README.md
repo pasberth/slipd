@@ -10,7 +10,7 @@ fpath=$(path/to/slipd/functions $fpath)
 
 ```
 
-すると cd ../../../.. とか書かなくて済みます
+すると `cd ../../../..` とか書かなくて済みます
 
 ```sh
 
@@ -32,4 +32,4 @@ zsh なら、 _slipd 関数を使って補完できます。
 alias ..=slipd
 compdef _slipd ..
 
-``
+```
